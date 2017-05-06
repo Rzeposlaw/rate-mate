@@ -44,6 +44,19 @@ a {
     color: #458d21;
 }
 
+progress{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    top: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
 .navbar-brand {
     height: auto;
 }
