@@ -14,7 +14,7 @@ block content
                     li
                         a(data-target='#my-carousel') HOME
                     li
-                        a(data-target='#top') TOP 20
+                        a(data-target='#top') TOP 5
                     li
                         a(href='/products') PRODUCTS
                     li
@@ -51,10 +51,10 @@ block content
             |
             span.sr-only Next
     #top.container.text-center
-        h3 Top 20 products
+        h3 Top 5 products
         br
         br
-        .row
+        div.row
             .col-sm-4
                 a(href='#product' data-toggle='collapse')
                     img.img-responsive.img-circle(src='images/portada.jpg')
@@ -82,7 +82,7 @@ block content
         br
         br
         br
-        .row
+        #center-row.div.row
             .col-sm-4
                 a(href='#product21' data-toggle='collapse')
                     img.img-circle.img-responsive(src='images/portada.jpg')
@@ -93,19 +93,11 @@ block content
                     p Opis
             .col-sm-4
                 a(href='#product22' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/portada.jpg')
+                    img.img-circle.img-responsive(src='images/yerba-mate-2.jpg')
                 br
                 p.text-center
                     strong Opis
                 #product22.collapse
-                    p Opis
-            .col-sm-4
-                a(href='#product31' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/portada.jpg')
-                br
-                p.text-center
-                    strong Opis
-                #product31.collapse
                     p Opis
     footer.text-center
         a.up-arrow(href='#my-carousel', data-toggle='tooltip')

@@ -12,6 +12,10 @@ body {
     height: 70px;
 }
 
+#center-row {
+    text-align: center;
+}
+
 .footer-color {
     color: #13340c;
 }
