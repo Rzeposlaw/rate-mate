@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .wrapper
+        form.form-signin(method="POST", action="/register")
+            h2.form-signin-heading Please register
+            |
+            input.form-control(type='email', name='email', placeholder='email', required='')
+            |
+            input.form-control(type='text', name='userName', placeholder='Login', required='', autofocus='')
+            |
+            input.form-control(type='password', name='password', placeholder='Password', required='')
+            |
+            select.form-control(name='role')
+                option(value="admin") admin
+                option(value="user") user
+            |
+            button.btn.btn-lg.btn-primary.btn-block(type='submit' style='margin-top:20px') Register
