@@ -33,11 +33,16 @@ body {
 }
 
 .navbar-nav li a:hover {
-    color: #fff !important;
+    color: #fafbff !important;
 }
 
 .navbar-default .navbar-nav li a {
     color: #458d21;
+}
+
+.navbar-default .navbar-nav li a:focus {
+    color: #13340c;
+    background-color: #cfff44;
 }
 
 .carousel-inner img {
@@ -55,20 +60,11 @@ body {
     }
 }
 
-.list-group-item:first-child {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-}
-.list-group-item:last-child {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
 .navbar-brand {
     height: auto;
 }
 
-.navbar-collapse.collapse {
+.navbar-collapse .collapse {
     display: block !important;
     height: 70px !important;
     padding-bottom: 0;
