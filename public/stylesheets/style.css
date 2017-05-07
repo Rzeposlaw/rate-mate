@@ -32,6 +32,11 @@ body {
     opacity: 0.9;
 }
 
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #13340c;
+    background-color: #cfff44;
+}
+
 .navbar-nav li a:hover {
     color: #fafbff !important;
 }
