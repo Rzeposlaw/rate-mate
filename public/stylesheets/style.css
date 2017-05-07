@@ -3,7 +3,6 @@ body {
     font: 400 15px/1.8 Montserrat, sans-serif;
     color: snow;
     letter-spacing: 4px;
-    background-image: url("yerba-mate-2.jpg");
 }
 
 #my-navbar {
@@ -22,6 +21,10 @@ body {
 
 #center-row {
     text-align: center;
+}
+
+#top {
+    background-color: #13340c;
 }
 
 .footer-color {
