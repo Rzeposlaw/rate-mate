@@ -5,7 +5,7 @@ var session = require('express-session');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {user: {authenticated: req.session.authenticated}});
+    res.render('index');
 });
 
 module.exports = router;
