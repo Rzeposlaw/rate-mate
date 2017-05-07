@@ -13,6 +13,8 @@ block content
                     li
                         a(href='#top') TOP 20
                     li
+                        a(href='#products') PRODUCTS
+                    li
                         a(href='#login') LOGIN
                     li
                         a(href='#sign_up') SIGN UP
@@ -21,12 +23,27 @@ block content
                             span.glyphicon.glyphicon-search
     .my-carousel.carousel.slide(data-ride='carousel')
         ol.carousel-indicators
-            li.active(data-target='#myCarousel', data-slide-to='0')
+            li.active(data-target='#my-carousel', data-slide-to='0')
+            li(data-target='#my-carousel', data-slide-to='1')
+            li(data-target='#my-carousel', data-slide-to='2')
+            li(data-target='#my-carousel', data-slide-to='3')
         .carousel-inner(role='listbox')
             .item.active
                 img(src='images/yerba-mate-1024x768.jpg')
                 .carousel-caption
                     h3  Ino yerba!
+            .item
+                img(src='images/mate-bombilla.jpg')
+                .carousel-caption
+                    h3 Mate bombilla
+            .item
+                img(src='images/portada.jpg')
+                .carousel-caption
+                    h3 Portada
+            .item
+                img(src='images/yerba-mate-2.jpg')
+                .carousel-caption
+                    h3 Yerba mate
         a.left.carousel-control(href='#my-carousel', role='button', data-slide='prev')
             span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
             |
