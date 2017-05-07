@@ -1,11 +1,19 @@
 body {
     padding: 0;
-    font: 400 15px/1.8 Lato, sans-serif;
+    font: 400 15px/1.8 Montserrat, sans-serif;
     color: snow;
+    letter-spacing: 4px;
+    background-image: url("yerba-mate-2.jpg");
 }
 
 #my-navbar {
     padding-left: 50px;
+}
+
+#my-header {
+    font-size: 16px;
+    font-weight: normal;
+    color: #458d21;
 }
 
 #brand-img {
@@ -30,7 +38,6 @@ body {
 .container {
     padding: 30px 120px 60px;
     width: 100%;
-    background-color: #272727;
 }
 
 .navbar {
