@@ -17,10 +17,15 @@ block content
                         a(data-target='#top') TOP 5
                     li
                         a(href='/products') PRODUCTS
-                    li
-                        a(href='/login') LOGIN
-                    li
-                        a(href='/register') SIGN UP
+                    if user.authenticated
+                        li
+                            form(method="POST", action="/logout")
+                                button.btn-link(class='navbar-button btn' type='submit') LOGOUT
+                    else
+                        li
+                            a(href='/login') LOGIN
+                        li
+                            a(href='/register') SIGN UP
                     li
                         a(href='#')
                             span.glyphicon.glyphicon-search
