@@ -1,12 +1,19 @@
 body {
     padding: 0;
     font: 400 15px/1.8 Montserrat, sans-serif;
-    color: snow;
     letter-spacing: 4px;
 }
 
 #my-navbar {
     padding-left: 50px;
+}
+
+.form-signin {
+    padding-top: 100px;
+}
+
+#my-rate-mate-page {
+    background-image: url("/upfeathers.png");
 }
 
 #my-header {

@@ -1,34 +1,6 @@
 extends layout
 
 block content
-    nav.navbar.navbar-default.navbar-fixed-top
-        .container-fluid
-            .navbar-header
-                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#my-navbar')
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand
-                    img#brand-img(src='images/logo-rate-mate.png')
-            #my-navbar.collapse.navbar-collapse
-                ul.nav.navbar-nav.navbar-right
-                    li
-                        a(data-target='#my-carousel') HOME
-                    li
-                        a(data-target='#top') TOP 5
-                    li
-                        a(href='/products') PRODUCTS
-                    if user.authenticated
-                        li
-                            form(method="POST", action="/logout")
-                                button.btn-link(class='navbar-button btn' type='submit') LOGOUT
-                    else
-                        li
-                            a(href='/login') LOGIN
-                        li
-                            a(href='/register') SIGN UP
-                    li
-                        a(href='#')
-                            span.glyphicon.glyphicon-search
     #my-carousel.carousel.slide(data-ride='carousel')
         ol.carousel-indicators
             li.active(data-target='#my-carousel', data-slide-to='0')
