@@ -12,6 +12,10 @@ body {
     height: 70px;
 }
 
+.footer-color {
+    color: #13340c;
+}
+
 @media (min-width: 768px) {
     .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse {
         padding-right: 15px;
