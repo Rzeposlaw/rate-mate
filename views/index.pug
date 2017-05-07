@@ -2,9 +2,6 @@ extends layout
 
 block content
     nav.navbar.navbar-default.navbar-fixed-top
-        progress(value='0')
-            .progress-container
-                span.progress-bar
         .container-fluid
             .navbar-header
                 a.navbar-brand
@@ -22,3 +19,19 @@ block content
                     li
                         a(href='#')
                             span.glyphicon.glyphicon-search
+    .my-carousel.carousel.slide(data-ride='carousel')
+        ol.carousel-indicators
+            li.active(data-target='#myCarousel', data-slide-to='0')
+        .carousel-inner(role='listbox')
+            .item.active
+                img(src='images/yerba-mate-1024x768.jpg')
+                .carousel-caption
+                    h3  Ino yerba!
+        a.left.carousel-control(href='#my-carousel', role='button', data-slide='prev')
+            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+            |
+            span.sr-only Previous
+        a.right.carousel-control(href='#my-carousel', role='button', data-slide='next')
+            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+            |
+            span.sr-only Next
