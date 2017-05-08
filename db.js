@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var config = require('./secret.json');
 var bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
 var userSchema = new mongoose.Schema({
     username: String,
     passwordHash: String,
@@ -10,18 +9,28 @@ var userSchema = new mongoose.Schema({
     role: String
 }, {collection: "users"});
 
-var productsSchema = new mongoose.Schema({
+var productSchema = new mongoose.Schema({
     id: Number,
     name: String,
     description: String,
     imagePath: String,
-    rating: Number
+    rating: Number,
+    numberOfRatings: Number
 }, {collection: "products"});
 
+var commentSchema = new mongoose.Schema({
+    userID: Number,
+    id: Number,
+    productID: Number,
+    comment: String,
+    date: Date
+}, {collection: "comments"});
+
 mongoose.model('User', userSchema);
-mongoose.model('Product', productsSchema);
+mongoose.model('Product', productSchema);
+mongoose.model('Comment', commentSchema);
+
 
 mongoose.connect(config.url);
 
 module.exports.mongoose = mongoose;
-module.exports.salt = salt;
