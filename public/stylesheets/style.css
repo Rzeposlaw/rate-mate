@@ -1,11 +1,16 @@
 body {
     font: 400 15px/1.8 Montserrat, sans-serif;
     letter-spacing: 4px;
+    color: #13340c;
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/upfeathers.png");
 }
 
 #error-page {
     padding-top: 100px;
+}
+
+#my-products {
+    margin-top: 100px;
 }
 
 #logout-button {
@@ -42,6 +47,21 @@ body {
 h1, h2 {
     text-align: center;
     color: #13340c;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
 }
 
 #signin-href {

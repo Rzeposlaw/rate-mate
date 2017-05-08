@@ -1,3 +1,20 @@
 extends layout
 block content
-    .container
+    #my-products.container
+        each product in products
+            text-center.slideanim
+                .col-sm-4
+                    .thumbnail
+                        img(src="#{product.imagePath}", width='400', height='300')
+                        p
+                            strong #{product.name}
+                        p #{product.description}
+                        br
+                        br
+                        p #{product.rating}
+                        .rating
+                            span &star;
+                            span &star;
+                            span &star;
+                            span &star;
+                            span &star;
