@@ -10,7 +10,17 @@ var userSchema = new mongoose.Schema({
     role: String
 }, {collection: "users"});
 
+var productsSchema = new mongoose.Schema({
+    id: Number,
+    name: String,
+    description: String,
+    imagePath: String,
+    rating: Number
+}, {collection: "products"});
+
 mongoose.model('User', userSchema);
+mongoose.model('Product', productsSchema);
+
 mongoose.connect(config.url);
 
 module.exports.mongoose = mongoose;
