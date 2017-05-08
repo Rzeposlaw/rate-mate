@@ -10,17 +10,15 @@ var userSchema = new mongoose.Schema({
 }, {collection: "users"});
 
 var productSchema = new mongoose.Schema({
-    id: Number,
     name: String,
     description: String,
     imagePath: String,
-    rating: Number,
+    rating: {type: Number, min: 1, max: 10},
     numberOfRatings: Number
 }, {collection: "products"});
 
 var commentSchema = new mongoose.Schema({
     userID: Number,
-    id: Number,
     productID: Number,
     comment: String,
     date: Date
