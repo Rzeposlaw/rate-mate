@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var session = require('express-session');
-var db = require('../db');
-var mongoose = db.mongoose;
+var session = require('express-session')
 var fs = require('fs');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
-/* GET home page. */
+var db = require('../db');
+var mongoose = db.mongoose;
+var roles = require('../roles.json');
 var Product = mongoose.model('Product');
 
 router.use(function (req, res, next) {
-        if (req.session.authenticated) {
+        if (roles[req.session.role].indexOf("/new-product") != -1) {
             next();
         } else {
             next('router');

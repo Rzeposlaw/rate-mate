@@ -1,0 +1,9 @@
+{
+  "unauthorized": [],
+  "user": [
+    "/new-product"
+  ],
+  "admin": [
+    "/new-product"
+  ]
+}
