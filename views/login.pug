@@ -2,7 +2,7 @@ extends layout
 
 block content
     #login-wrapper.wrapper.col-sm-12
-        #login.form.form-signin.col-sm-6(method="POST", action="/login")
+        #login.form.form-signin.col-sm-4.col-sm-offset-4(method="POST", action="/login")
             h2.form-signin-heading PLEASE LOGIN
             |
             input.form-control.my-form(type='text', name='username', placeholder='LOGIN', required='', autofocus='')
