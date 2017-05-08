@@ -9,7 +9,7 @@ body {
     padding-left: 50px;
 }
 
-#login-wrapper {
+#login-register-wrapper {
     color: #13340c;
 }
 
@@ -17,7 +17,11 @@ h2 {
     text-align: center;
 }
 
-#login-button {
+#signin-href {
+    color: white;
+}
+
+#login-register-button {
     color: #025715;
     background-color: #cfff44;
 }
@@ -36,7 +40,7 @@ h2 {
     padding: 15px 35px 45px;
     background-color: rgba(19, 52, 12, 0.6);;
     margin-top: 140px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 }
 
 #my-header {
