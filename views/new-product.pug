@@ -1,3 +1,18 @@
 extends layout
 block content
+    login-register-wrapper.wrapper.col-sm-12
+        form.form-signin.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4(method="POST", action="/new-product" enctype="multipart/form-data")
+            h2.form-signin-heading Add new product
+            |
+            br
+            input.form-control.my-form(type="file", name="productImage")
+            |
+            br
+            input.form-control.my-form(type='text', name='name', placeholder='Name', required='')
+            |
+            br
+            textarea.form-control.my-form(type='text', name='description', placeholder='Description of product', rows="3")
+            |
+            br
+            button#login-register-button.btn.btn-lg.btn-primary.btn-block.my-form(type='submit') ADD
 
