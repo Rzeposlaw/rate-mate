@@ -5,7 +5,8 @@ block content
             slideanim
                 .col-sm-4
                     .thumbnail
-                        img(src=product.imagePath, width='400', height='300')
+                        .image
+                            img.img-responsive(src=product.imagePath)
                         p
                             strong #{product.name}
                         p #{product.description}

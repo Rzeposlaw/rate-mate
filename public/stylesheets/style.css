@@ -23,14 +23,19 @@ body {
     margin-top: 40px;
 }
 
+.image {
+    height: 200px;
+}
+
 .thumbnail img {
-    width: 100%;
+    /*width: 100%;*/
+    display: inline-block;
     height: 100%;
     margin-bottom: 10px;
 }
 
 .slideanim {
-    visibility:hidden;
+    visibility: hidden;
 }
 
 #products {
@@ -78,11 +83,13 @@ h1, h2 {
     unicode-bidi: bidi-override;
     direction: rtl;
 }
+
 .rating > span {
     display: inline-block;
     position: relative;
     width: 1.1em;
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
     content: "\2605";
