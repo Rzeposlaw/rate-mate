@@ -4,7 +4,7 @@ var session = require('express-session')
 var fs = require('fs');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
-
+var path = require('path');
 var db = require('../db');
 var mongoose = db.mongoose;
 var roles = require('../roles.json');
@@ -25,14 +25,14 @@ router.get('/', function (req, res, next) {
 
 router.post('/', multipartMiddleware, function (req, res, next) {
     fs.readFile(req.files.productImage.path, function (err, data) {
-        var newPath = __dirname + "/../public/uploads/" + req.body.name + ".png";
+        var newPath = path.join(__dirname, "..", "public", "uploads", req.body.name + ".png");
         console.log(newPath);
         fs.writeFile(newPath, data, function (err) {
             console.log(err);
             new Product({
                 name: req.body.name,
                 description: req.body.description,
-                imagePath: "uploads/" + req.body.name + ".png",
+                imagePath: path.join("uploads", req.body.name + ".png"),
                 rating: 1,
                 numberOfRatings: 0
             }).save(function (err) {
