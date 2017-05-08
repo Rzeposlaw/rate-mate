@@ -14,6 +14,7 @@ body {
     -moz-border-radius: 0 !important;
     padding: 0 0 15px 0;
     border: none;
+    margin-top: 40px;
 }
 
 .thumbnail img {
@@ -27,7 +28,7 @@ body {
 }
 
 #products {
-    margin-top: 100px;
+    margin-top: 40px;
     text-align: center;
 }
 
