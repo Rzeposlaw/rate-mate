@@ -20,6 +20,10 @@ body {
     color: white;
 }
 
+#logout-button:focus {
+    background-color: #cfff44;
+}
+
 #login-register-wrapper {
     color: #13340c;
 }
