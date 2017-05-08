@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var session = require('express-session');
-var mongoose = require('mongoose');
+var db = require('../db');
+var mongoose = db.mongoose;
 var fs = require('fs');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
+
 
 /* GET home page. */
 var Product = mongoose.model('Product');
@@ -20,7 +22,16 @@ router.post('/', multipartMiddleware, function (req, res, next) {
         console.log(newPath);
         fs.writeFile(newPath, data, function (err) {
             console.log(err);
-            res.redirect("/");
+            new Product({
+                name: req.body.name,
+                description: req.body.description,
+                imagePath: newPath,
+                rating: 1,
+                numberOfRatings: 0
+            }).save(function (err) {
+                console.log(err);
+                res.redirect('/');
+            });
         });
     });
 });

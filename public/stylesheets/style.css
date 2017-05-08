@@ -32,6 +32,19 @@ body {
     padding-left: 50px;
 }
 
+#logout-button {
+    padding: 14px;
+    color: #458d21;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font: 400 15px/1.8 Montserrat, sans-serif;
+    font-size: 13px;
+}
+
+#logout-button:hover {
+    color: white;
+}
+
 #login-register-wrapper {
     color: #13340c;
 }
@@ -47,6 +60,7 @@ h2 {
 #login-register-button {
     color: #025715;
     background-color: #cfff44;
+
 }
 
 .my-form {
@@ -111,7 +125,7 @@ h2 {
     opacity: 0.9;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #13340c;
     background-color: #cfff44;
 }
@@ -148,36 +162,45 @@ h2 {
     .navbar-header {
         float: none;
     }
-    .navbar-left,.navbar-right {
+
+    .navbar-left, .navbar-right {
         float: none !important;
     }
+
     .navbar-toggle {
         display: block;
     }
+
     .navbar-collapse {
         border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
+
     .navbar-fixed-top {
         top: 0;
         border-width: 0 0 1px;
     }
+
     .navbar-collapse.collapse {
-        display: none!important;
+        display: none !important;
     }
+
     .navbar-nav {
-        float: none!important;
+        float: none !important;
         margin-top: 7.5px;
     }
-    .navbar-nav>li {
+
+    .navbar-nav > li {
         float: none;
     }
-    .navbar-nav>li>a {
+
+    .navbar-nav > li > a {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-    .collapse.in{
-        display:block !important;
+
+    .collapse.in {
+        display: block !important;
     }
 }
 
