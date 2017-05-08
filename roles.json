@@ -4,6 +4,7 @@
     "/new-product"
   ],
   "admin": [
-    "/new-product"
+    "/new-product",
+    "/users"
   ]
 }

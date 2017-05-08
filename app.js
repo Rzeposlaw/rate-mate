@@ -44,7 +44,15 @@ app.use(function (req, res, next) {
     next();
 });
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', users, function (req, res) {
+    res.status(403);
+    res.render("error", {
+        message: "You need to be logged in.",
+        error: {
+            status: 401
+        }
+    });
+});
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
