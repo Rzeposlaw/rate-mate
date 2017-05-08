@@ -1,21 +1,21 @@
 extends layout
 
 block content
-    .wrapper
-        #login.form.form-signin(method="POST", action="/login")
-            h2.form-signin-heading PLEASE LOG IN
+    #login-wrapper.wrapper.col-sm-12
+        #login.form.form-signin.col-sm-6(method="POST", action="/login")
+            h2.form-signin-heading PLEASE LOGIN
             |
-            input.form-control(type='text', name='username', placeholder='LOGIN', required='', autofocus='')
-            |
-            br
-            input.form-control(type='password', name='password', placeholder='PASSWORD', required='')
+            input.form-control.my-form(type='text', name='username', placeholder='LOGIN', required='', autofocus='')
             |
             br
-            label.checkbox
+            input.form-control.my-form(type='password', name='password', placeholder='PASSWORD', required='')
+            |
+            br
+            label.checkbox.my-form
                 input#rememberMe(type='checkbox', value='remember-me', name='rememberMe')
                 |  Remember me
             |
             br
-            button.btn.btn-lg.btn-primary.btn-block(type='submit') LOGIN
+            #login-button.button.btn.btn-lg.btn-primary.btn-block.my-form(type='submit') LOGIN
             br
             a(href='/register' class='btn-link btn' type='submit') Don't have any account? Sign in!

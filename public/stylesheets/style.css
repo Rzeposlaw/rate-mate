@@ -9,20 +9,37 @@ body {
     padding-left: 50px;
 }
 
+#login-wrapper {
+    color: #13340c;
+}
+
 h2 {
     text-align: center;
 }
 
+#login-button {
+    color: #025715;
+    background-color: #cfff44;
+}
+
+.my-form {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-color: #025715;
+}
+
+.my-form:focus {
+    border-color: #cfff44;
+}
+
 .form-signin {
     padding: 15px 35px 45px;
-    background-color: rgba(19, 52, 12, 0.6);
-    margin-left: 150px;
-    margin-right: 150px;
+    background-color: rgba(19, 52, 12, 0.6);;
     margin-top: 140px;
 }
 
 #my-header {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: normal;
     color: #458d21;
 }
