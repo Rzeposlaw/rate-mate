@@ -5,6 +5,10 @@ body {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/upfeathers.png");
 }
 
+#users {
+    margin-top: 80px;
+}
+
 #error-page {
     padding-top: 100px;
 }

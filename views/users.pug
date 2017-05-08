@@ -1,4 +1,18 @@
 extends layout
 block content
     #users.container
-        each user in users
+        .table-responsive
+            table.table
+                thead
+                    tr
+                        th Id
+                        th Username
+                        th E-mail address
+                        th Role
+                tbody
+                    each user in users
+                        tr
+                            td
+                            td #{user.username}
+                            td #{user.email}
+                            td #{user.role}
