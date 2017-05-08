@@ -24,9 +24,15 @@ html
                         li
                             a(href='/products' data-target='#products') PRODUCTS
                         if user.authenticated
+                            if user.role == "admin"
+                                li
+                                    a ADMIN #{user.username}
+                            else
+                                li
+                                    a USER #{user.username}
                             li
                                 form(method="POST", action="/logout")
-                                    button.btn-link(class='navbar-button btn' type='submit') LOGOUT
+                                    #logout-button.button.btn-link.navbar-button.btn(type='submit') LOG OUT
                         else
                             li
                                 a(href='/login' data-target='#login') LOGIN

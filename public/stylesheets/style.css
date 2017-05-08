@@ -5,6 +5,25 @@ body {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/upfeathers.png");
 }
 
+#logout-button {
+    color: #458d21;
+    height:50px;
+    margin-top: 0px;
+    padding: 12px 15px 18px;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font: 400 15px/1.8 Montserrat, sans-serif;
+    font-size: 13px;
+}
+
+#logout-button:hover {
+    color: white;
+}
+
+#login-register-wrapper {
+    color: #13340c;
+}
+
 #my-navbar {
     padding-left: 50px;
 }
