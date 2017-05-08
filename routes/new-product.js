@@ -32,7 +32,7 @@ router.post('/', multipartMiddleware, function (req, res, next) {
             new Product({
                 name: req.body.name,
                 description: req.body.description,
-                imagePath: newPath,
+                imagePath: "uploads/" + req.body.name + ".png",
                 rating: 1,
                 numberOfRatings: 0
             }).save(function (err) {
