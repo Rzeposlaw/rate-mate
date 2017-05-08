@@ -9,14 +9,14 @@ body {
     padding-top: 100px;
 }
 
-#my-products {
+#products {
     margin-top: 100px;
 }
 
 #logout-button {
     color: #458d21;
     height: 50px;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 12px 15px 18px;
     text-decoration: none;
     letter-spacing: 4px;
