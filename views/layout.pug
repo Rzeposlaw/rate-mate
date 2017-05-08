@@ -28,7 +28,9 @@ html
                                 a(href='/new-product' data-target='#new-product') ADD PRODUCT
                             if user.role == "admin"
                                 li
-                                    a ADMIN #{user.username}
+                                    a(href='/users' data-target='#users') USERS
+                                li
+                                    a ADMIN username: #{user.username}
                             else
                                 li
                                     a USER #{user.username}
