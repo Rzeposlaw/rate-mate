@@ -32,7 +32,7 @@ html
                                     a USER #{user.username}
                             li
                                 form(method="POST", action="/logout")
-                                    #logout-button.button.btn-link.navbar-button.btn(type='submit') LOG OUT
+                                    button#logout-button.btn-link.navbar-button.btn(type='submit') LOG OUT
                         else
                             li
                                 a(href='/login' data-target='#login') LOGIN
