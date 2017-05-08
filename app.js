@@ -28,7 +28,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
-    res.locals.user = {authenticated: req.session.authenticated};
+    res.locals.user = {
+        authenticated: req.session.authenticated,
+        role: req.session.role,
+        username: req.session.username
+    };
     next();
 });
 app.use('/', index);
