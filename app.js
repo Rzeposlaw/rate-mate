@@ -43,7 +43,16 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/products', products);
-app.use('/new-product', new_product);
+app.use('/new-product', new_product, function (req, res) {
+        res.status(401);
+        res.render("error", {
+            message: "You need to be logged in.",
+            error: {
+                status: 401
+            }
+        });
+    }
+);
 
 
 // catch 404 and forward to error handler

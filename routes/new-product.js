@@ -7,11 +7,18 @@ var fs = require('fs');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
 
-
 /* GET home page. */
 var Product = mongoose.model('Product');
 
-
+router.use(function (req, res, next) {
+        if (req.session.authenticated) {
+            next();
+        } else {
+            next('router');
+        }
+    }
+)
+;
 router.get('/', function (req, res, next) {
     res.render('new-product');
 });
