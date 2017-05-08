@@ -2,7 +2,7 @@ extends layout
 block content
     #products.container
         each product in products
-            text-center.slideanim
+            slideanim
                 .col-sm-4
                     .thumbnail
                         img(src="#{product.imagePath}", width='400', height='300')
