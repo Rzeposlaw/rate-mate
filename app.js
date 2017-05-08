@@ -30,6 +30,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
+    if (req.session.role === undefined) {
+        req.session.role = "unauthorized";
+    }
+    next();
+});
+app.use(function (req, res, next) {
     res.locals.user = {
         authenticated: req.session.authenticated,
         role: req.session.role,
