@@ -9,16 +9,10 @@ var db = require('../db');
 var mongoose = db.mongoose;
 var roles = require('../roles.json');
 var Product = mongoose.model('Product');
+var utils = require('../utils');
 
-router.use(function (req, res, next) {
-        if (roles[req.session.role].indexOf("/new-product") != -1) {
-            next();
-        } else {
-            next('router');
-        }
-    }
-)
-;
+router.use(utils.preRouterErrorHandler);
+
 router.get('/', function (req, res, next) {
     res.render('new-product');
 });

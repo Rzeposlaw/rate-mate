@@ -13,7 +13,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var products = require('./routes/products');
 var new_product = require('./routes/new-product');
-
+var utils = require('./utils');
 
 var app = express();
 
@@ -44,29 +44,12 @@ app.use(function (req, res, next) {
     next();
 });
 app.use('/', index);
-app.use('/users', users, function (req, res) {
-    res.status(403);
-    res.render("error", {
-        message: "You need to be logged in.",
-        error: {
-            status: 401
-        }
-    });
-});
+app.use('/users', users, utils.postRouterErrorHandler);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/products', products);
-app.use('/new-product', new_product, function (req, res) {
-        res.status(401);
-        res.render("error", {
-            message: "You need to be logged in.",
-            error: {
-                status: 401
-            }
-        });
-    }
-);
+app.use('/new-product', new_product, utils.postRouterErrorHandler);
 
 
 // catch 404 and forward to error handler
