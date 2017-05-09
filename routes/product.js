@@ -5,9 +5,9 @@ var mongoose = require('mongoose');
 
 var Product = mongoose.model('Product');
 
-router.get('/', function (req, res, next) {
-    Product.find({}, function (err, products) {
-        res.render('products', {products: products});
+router.get('/:productID', function (req, res, next) {
+    Product.findOne({_id: req.params.productID}, function (err, product) {
+        res.render('product', {product: product});
     });
 });
 

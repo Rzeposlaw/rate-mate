@@ -5,17 +5,18 @@ block content
             slideanim
                 .col-sm-4
                     .thumbnail
-                        .image
-                            img.img-responsive(src=product.imagePath)
-                        p
-                            strong #{product.name}
-                        p #{product.description}
-                        br
-                        br
-                        p #{product.rating}
-                        .rating
-                            span &star;
-                            span &star;
-                            span &star;
-                            span &star;
-                            span &star;
+                        a(href="/product/"+product._id)
+                            .image
+                                img.img-responsive(src=product.imagePath)
+                            p
+                                strong #{product.name}
+                            p #{product.description}
+                            br
+                            br
+                            p #{product.rating}
+                            .rating
+                                span &star;
+                                span &star;
+                                span &star;
+                                span &star;
+                                span &star;
