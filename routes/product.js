@@ -11,4 +11,11 @@ router.get('/:productID', function (req, res, next) {
     });
 });
 
+router.post('/:productID', function (req, res, next) {
+    console.log(req.body);
+    Product.findOne({_id: req.params.productID}, function (err, product) {
+        res.render('product', {product: product});
+    });
+});
+
 module.exports = router;
