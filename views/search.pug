@@ -1,8 +1,10 @@
 extends layout
 
 block content
-    a(href='#')
-        span.glyphicon.glyphicon-search
-    #login.login-register-wrapper.wrapper.col-sm-12
-        input.form-control.my-form(type='text', name='search', placeholder='SEARCH', required='', autofocus='')
+    #search.login-register-wrapper.wrapper.col-sm-12
+        div.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+            a(href='#')
+                #magnif.span.glyphicon.glyphicon-search
+            wrapper.col-sm-12
+                input.form-control.my-form(type='text', name='search', placeholder='SEARCH', required='', autofocus='')
 

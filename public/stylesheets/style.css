@@ -74,6 +74,10 @@ body {
     color: #13340c;
 }
 
+#magnif {
+    color: #13340c;
+}
+
 #my-navbar {
     padding-left: 50px;
 }
@@ -90,6 +94,11 @@ h1, h2 {
 div.stars {
     width: 237px;
     display: inline-block;
+}
+
+#search {
+    padding-top: 120px;
+    margin-bottom: 500px;
 }
 
 #rate-button {
