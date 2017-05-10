@@ -30,14 +30,18 @@ html
                             if user.role == "admin"
                                 li
                                     a(href='/users' data-target='#users') USERS
-                                li
-                                    a ADMIN username: #{user.username}
-                            else
-                                li
-                                    a USER #{user.username}
                             li
-                                form(method="POST", action="/logout")
-                                    button#logout-button.btn-link.navbar-button.btn(type='submit') LOG OUT
+                                .dropdown
+                                    a.dropdown-toggle(data-toggle='dropdown')
+                                        span.caret
+                                    ul.dropdown-menu(role='menu')
+                                        li
+                                            a Logged as #{user.username}
+                                        li
+                                            a(href='/my-votes') MY VOTES
+                                        li
+                                            form(method="POST", action="/logout")
+                                                button#logout-button.btn-link.navbar-button.btn(type='submit') LOG OUT
                         else
                             li
                                 a(href='/login' data-target='#login') LOGIN
