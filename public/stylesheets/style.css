@@ -88,8 +88,19 @@ h1, h2 {
 }
 
 div.stars {
-    width: 270px;
+    width: 237px;
     display: inline-block;
+}
+
+#rate-button {
+    background-color: #fad709;
+    color: #13340c;
+    border-color: #13340c;
+    border-radius: 0;
+}
+
+#star-form{
+    padding-left: 10px;
 }
 
 input.star { display: none; }
