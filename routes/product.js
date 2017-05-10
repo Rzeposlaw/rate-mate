@@ -12,7 +12,7 @@ router.get('/:productID', function (req, res, next) {
 });
 
 router.post('/:productID', function (req, res, next) {
-    console.log(req.body);
+    console.log("body " + req.body.star);
     Product.findOne({_id: req.params.productID}, function (err, product) {
     });
     //return res.send("");
