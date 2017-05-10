@@ -14,20 +14,27 @@ var productSchema = new mongoose.Schema({
     name: String,
     description: String,
     imagePath: String,
-    rating: {type: Number, min: 1, max: 10},
+    rating: {type: Number, min: 1, max: 5},
     numberOfRatings: Number
 }, {collection: "products"});
 
 var commentSchema = new mongoose.Schema({
-    userID: Number,
-    productID: Number,
+    username: String,
+    productID: String,
     comment: String,
     date: Date
 }, {collection: "comments"});
 
+var ratingSchema = new mongoose.Schema({
+    username: String,
+    productID: String,
+    rating: Number
+}, {collection: "ratings"});
+
 mongoose.model('User', userSchema);
 mongoose.model('Product', productSchema);
 mongoose.model('Comment', commentSchema);
+mongoose.model('Rating', ratingSchema);
 
 mongoose.connect(config.url);
 

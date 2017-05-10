@@ -36,6 +36,7 @@ app.use('/product', express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     if (req.session.role === undefined) {
         req.session.role = "unauthorized";
+        req.session.authenticated = false;
     }
     next();
 });
@@ -52,7 +53,7 @@ app.use('/users', users, utils.postRouterErrorHandler);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/products', products);
+app.use('/products', products, utils.postRouterErrorHandler);
 app.use('/product', product);
 app.use('/new-product', new_product, utils.postRouterErrorHandler);
 app.use('/search', search);

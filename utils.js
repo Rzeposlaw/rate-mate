@@ -5,15 +5,18 @@ var session = require('express-session');
 module.exports = {
     postRouterErrorHandler: function (req, res) {
         var status;
+        var message;
         if (req.session.authenticated) {
             status = 403;
+            message = "You don't have suitable permission to perform this action."
         } else {
+            message = "You need to be logged in.";
             status = 401;
         }
 
         res.status(status);
         res.render("error", {
-            message: "You need to be logged in.",
+            message: message,
             error: {
                 status: status
             }
