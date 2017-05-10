@@ -29,7 +29,6 @@ mongoose.model('User', userSchema);
 mongoose.model('Product', productSchema);
 mongoose.model('Comment', commentSchema);
 
-
 mongoose.connect(config.url);
 
 module.exports.mongoose = mongoose;
