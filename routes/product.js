@@ -13,8 +13,17 @@ var Rating = mongoose.model('Rating');
 router.get('/:productID', function (req, res, next) {
     Product.findOne({_id: req.params.productID}, function (err, product) {
         Comment.find({productID: product._id}, function (err, comments) {
-            console.log(comments);
-            res.render('product', {product: product, comments: comments});
+
+            Rating.findOne({productID: product._id, username: req.session.username}, function (err, rating) {
+                var starsArray = [];
+                for (var i = 0; i < 5; i++) {
+                    starsArray.push(false);
+                }
+                starsArray[rating.rating-1] = true;
+                console.log(starsArray);
+                res.render('product', {product: product, comments: comments, stars: starsArray});
+
+            });
         });
     });
 });
