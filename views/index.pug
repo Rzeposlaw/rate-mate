@@ -36,46 +36,46 @@ block content
         br
         div.row
             .col-sm-4
-                a(href='#product' data-toggle='collapse')
-                    img.img-responsive.img-circle(src='images/portada.jpg')
+                a(href='#product1' data-toggle='collapse')
+                    img.img-responsive.img-circle(src=topProducts[0].imagePath)
                 br
                 p.text-center
-                    strong Opis
-                #product.collapse
-                    p Opis
+                    strong #{topProducts[0].name}
+                #product1.collapse
+                    p #{topProducts[0].description}
             .col-sm-4
                 a(href='#product2' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/portada.jpg')
+                    img.img-circle.img-responsive(src=topProducts[1].imagePath)
                 br
                 p.text-center
-                    strong Opis
+                    strong #{topProducts[1].name}
                 #product2.collapse
-                    p Opis
+                    p #{topProducts[1].description}
             .col-sm-4
                 a(href='#product3' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/portada.jpg')
+                    img.img-circle.img-responsive(src=topProducts[2].imagePath)
                 br
                 p.text-center
-                    strong Opis
+                    strong #{topProducts[2].name}
                 #product3.collapse
-                    p Opis
+                    p #{topProducts[2].description}
         br
         br
         br
         #center-row.div.row
             .col-sm-4.col-sm-offset-2
-                a(href='#product21' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/portada.jpg')
+                a(href='#product4' data-toggle='collapse')
+                    img.img-circle.img-responsive(src=topProducts[3].imagePath)
                 br
                 p.text-center
-                    strong Opis
-                #product21.collapse
-                    p Opis
+                    strong #{topProducts[3].name}
+                #product4.collapse
+                    p #{topProducts[3].description}
             .col-sm-4
-                a(href='#product22' data-toggle='collapse')
-                    img.img-circle.img-responsive(src='images/yerba-mate-2.jpg')
+                a(href='#product5' data-toggle='collapse')
+                    img.img-circle.img-responsive(src=topProducts[4].imagePath)
                 br
                 p.text-center
-                    strong Opis
-                #product22.collapse
-                    p Opis
+                    strong #{topProducts[4].name}
+                #product5.collapse
+                    p #{topProducts[4].description}
