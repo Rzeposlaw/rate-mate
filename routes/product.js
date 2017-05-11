@@ -5,12 +5,16 @@ var mongoose = require('mongoose');
 var utils = require('../utils');
 
 var Product = mongoose.model('Product');
+var Comment = mongoose.model('Comment');
+
 var Rating = mongoose.model('Rating');
 
 
 router.get('/:productID', function (req, res, next) {
     Product.findOne({_id: req.params.productID}, function (err, product) {
-        res.render('product', {product: product});
+        Comment.find({productID: product._id}, function (err, comments) {
+            res.render('product', {product: product, comments: comments});
+        });
     });
 });
 
