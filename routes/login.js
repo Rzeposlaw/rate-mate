@@ -8,7 +8,7 @@ var session = require('express-session');
 
 var backUrl = '/';
 router.get('/', function (req, res, next) {
-    backURL=req.header('Referer');
+    backURL = req.header('Referer');
     res.render('login');
 });
 
@@ -18,6 +18,9 @@ router.post('/', function (req, res, next) {
             req.session.authenticated = true;
             req.session.username = user.username;
             req.session.role = user.role;
+            if (backUrl == '/login' || backUrl == '/register') {
+                backUrl = '/';
+            }
             res.redirect(backURL);
         } else {
             res.redirect('login');
