@@ -6,8 +6,9 @@ var mongoose = db.mongoose;
 var User = mongoose.model('User');
 var session = require('express-session');
 
-
+var backUrl = '/';
 router.get('/', function (req, res, next) {
+    backURL=req.header('Referer');
     res.render('login');
 });
 
@@ -17,7 +18,7 @@ router.post('/', function (req, res, next) {
             req.session.authenticated = true;
             req.session.username = user.username;
             req.session.role = user.role;
-            res.redirect('/');
+            res.redirect(backURL);
         } else {
             res.redirect('login');
         }
