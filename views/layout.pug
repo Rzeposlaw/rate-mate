@@ -35,7 +35,8 @@ html
                                     span.caret
                                 ul.dropdown-menu(role='menu')
                                     li
-                                        a.logout-button(href='/ratings' data-target='#my-ratings') MY RATINGS
+                                        .text-center
+                                            button.logout-button(onclick="location.href = '/ratings'" data-target='#my-ratings') MY RATINGS
                                     li
                                         form.text-center(method="POST", action="/logout")
                                             button.logout-button(type='submit') LOG OUT

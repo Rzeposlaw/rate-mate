@@ -73,11 +73,11 @@ body {
     font-size: 13px;
 }
 
-#logout-button:hover {
+.logout-button:hover {
     color: white;
 }
 
-#logout-button:focus {
+.logout-button:focus {
     background-color: #cfff44;
     color: #13340c;
 }
