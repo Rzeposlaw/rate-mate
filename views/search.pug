@@ -6,5 +6,6 @@ block content
             a(href='#')
                 #magnif.span.glyphicon.glyphicon-search
             wrapper.col-sm-12
-                input.form-control.my-form(type='text', name='search', placeholder='SEARCH', required='', autofocus='')
-
+                form(method="POST", action="/search")
+                    input.form-control.my-form(type='text', name='name', placeholder='SEARCH', required='', autofocus='')
+                    button.form-control.my-form(type='submit') SEARCH

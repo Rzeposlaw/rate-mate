@@ -32,6 +32,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/product', express.static(path.join(__dirname, 'public')));
+app.use('/search', express.static(path.join(__dirname, 'public')));
+
 
 app.use(function (req, res, next) {
     if (req.session.role === undefined) {

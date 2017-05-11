@@ -15,7 +15,6 @@ router.get('/:productID', function (req, res, next) {
 });
 
 router.post('/:productID', function (req, res, next) {
-    console.log("siema");
     if (!req.session.authenticated) {
         utils.postRouterErrorHandler(req, res);
     } else {
