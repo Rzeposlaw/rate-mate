@@ -1,0 +1,15 @@
+extends layout
+block content
+    #users.container
+        .table-responsive
+            table.table
+                thead
+                    tr
+                        th Product ID
+                        th Rating
+                tbody
+                    each rating in ratings
+                        tr
+                            td
+                                a(href='/product/' + rating.productID) #{rating.productID}
+                            td #{rating.rating}

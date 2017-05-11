@@ -42,11 +42,12 @@ block content
 
 
     if user.authenticated
-        form(method="POST", action="/product/" + product._id + '/comment')
-            h2.form-signin-heading ADD NEW COMMENT
-            |
-            br
-            textarea.form-control.my-form(type='text', name='comment', placeholder='Comment', rows="2")
-            |
-            br
-            button.form-control.my-form(type='submit') COMMENT
+        .container
+            form(method="POST", action="/product/" + product._id + '/comment')
+                h2.form-signin-heading ADD NEW COMMENT
+                |
+                br
+                textarea.form-control.my-form(type='text', name='comment', placeholder='Comment', rows="2")
+                |
+                br
+                button.form-control.my-form(type='submit') COMMENT

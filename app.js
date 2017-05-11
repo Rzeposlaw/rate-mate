@@ -16,6 +16,8 @@ var new_product = require('./routes/new-product');
 var product = require('./routes/product');
 var utils = require('./utils');
 var search = require('./routes/search');
+var ratings = require('./routes/ratings');
+
 
 var app = express();
 
@@ -60,6 +62,8 @@ app.use('/products', products, utils.postRouterErrorHandler);
 app.use('/product', product);
 app.use('/new-product', new_product, utils.postRouterErrorHandler);
 app.use('/search', search);
+app.use('/ratings', ratings);
+
 
 
 // catch 404 and forward to error handler

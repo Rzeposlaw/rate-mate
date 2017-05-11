@@ -45,7 +45,7 @@ router.post('/:productID', function (req, res, next) {
             } else {
                 var oldRating = rating.rating;
                 rating.rating = parseInt(req.body.star);
-                rating.rating.save(function (err) {
+                rating.save(function (err) {
                     Product.findOne({_id: req.params.productID}, function (err, product) {
                         var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star) - oldRating)
                             / (product.numberOfRatings);

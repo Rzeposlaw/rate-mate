@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 
-var mongoose = require('mongoose');
+var db = require('../db');
+var mongoose = db.mongoose;
 var Product = mongoose.model('Product');
 
 /* GET home page. */
