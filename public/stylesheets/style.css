@@ -6,7 +6,8 @@ body {
 }
 
 #users {
-    margin-top: 100px;
+    padding-top: 145px;
+    margin-top: 0;
     color: #174826;
     margin-bottom: 300px;
 }
@@ -51,11 +52,21 @@ body {
     text-align: center;
 }
 
-#logout-button {
-    color: #458d21;
-    height: 50px;
+.navbar-nav>li>.dropdown-menu {
     margin-top: 0;
-    padding: 12px 15px 18px;
+    border-radius: 0;
+}
+
+#my-ratings {
+    padding-top: 145px;
+}
+
+.logout-button {
+    color: #458d21;
+    background-color: #13340c;
+    border: none;
+    margin-top: 0;
+    text-align: center;
     text-decoration: none;
     letter-spacing: 4px;
     font: 400 15px/1.8 Montserrat, sans-serif;
@@ -68,6 +79,7 @@ body {
 
 #logout-button:focus {
     background-color: #cfff44;
+    color: #13340c;
 }
 
 #login-register-wrapper {
@@ -76,6 +88,14 @@ body {
 
 #magnif {
     color: #13340c;
+    border-radius: 0;
+    background-color: #cfff44;
+    margin-top: 5px;
+}
+
+.dropdown-menu {
+    background-color: #13340c;
+    color: #cfff44;
 }
 
 #my-navbar {
@@ -99,6 +119,31 @@ div.stars {
 #search {
     padding-top: 120px;
     margin-bottom: 500px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    color: #13340c;
+    background-color: #cfff44;
+}
+
+#dropdown-menu {
+    color: #458d21;
+    height: 50px;
+    margin-top: 0;
+    padding: 12px 15px 18px;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font: 400 15px/1.8 Montserrat, sans-serif;
+    font-size: 13px;
+}
+
+#dropdown-menu:hover {
+    color: white;
+}
+
+#dropdown-menu:focus {
+    background-color: #cfff44;
+    color: #13340c;
 }
 
 #rate-button {
