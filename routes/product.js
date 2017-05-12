@@ -91,4 +91,15 @@ router.post('/:productID/comment', function (req, res, next) {
 
 });
 
+router.post('/:productID/remove', function (req, res, next) {
+    if (req.role == 'admin') {
+        Product.find({productID: req.params.productID}).remove().exec();
+        res.redirect('/products');
+    }
+    else {
+        utils.postRouterErrorHandler(req, res);
+    }
+
+});
+
 module.exports = router;
