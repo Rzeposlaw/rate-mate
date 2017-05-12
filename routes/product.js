@@ -15,12 +15,16 @@ router.get('/:productID', function (req, res, next) {
         Comment.find({productID: product._id}, function (err, comments) {
 
             Rating.findOne({productID: product._id, username: req.session.username}, function (err, rating) {
-                var starsArray = [];
-                for (var i = 0; i < 5; i++) {
-                    starsArray.push(false);
+                if (rating == null) {
+                    starsArray = [false, false, false, false, false];
+                } else {
+                    var starsArray = [];
+                    for (var i = 0; i < 5; i++) {
+                        starsArray.push(false);
+                    }
+                    starsArray[rating.rating - 1] = true;
+                    console.log(starsArray);
                 }
-                starsArray[rating.rating-1] = true;
-                console.log(starsArray);
                 res.render('product', {product: product, comments: comments, stars: starsArray});
 
             });
