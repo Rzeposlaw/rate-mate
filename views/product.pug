@@ -13,23 +13,24 @@ block content
                     br
                     p #{product.rating}
                     br
-                    .stars
-                        form(method="POST", action='/product/' + product._id)
-                            input#star-5.star.star-5(type='radio', name='star', value='5', checked=stars[4])
-                            label.star.star-5(for='star-5')
-                            |
-                            input#star-4.star.star-4(type='radio', name='star', value='4', checked=stars[3])
-                            label.star.star-4(for='star-4')
-                            |
-                            input#star-3.star.star-3(type='radio', name='star', value='3', checked=stars[2])
-                            label.star.star-3(for='star-3')
-                            |
-                            input#star-2.star.star-2(type='radio', name='star', value='2', checked=stars[1])
-                            label.star.star-2(for='star-2')
-                            |
-                            input#star-1.star.star-1(type='radio', name='star', value='1', checked=stars[0])
-                            label.star.star-1(for='star-1')
-                            input#rate-button.btn(type='submit' value='RATE MATE')
+                    if user.authenticated
+                        .stars
+                            form(method="POST", action='/product/' + product._id)
+                                input#star-5.star.star-5(type='radio', name='star', value='5', checked=stars[4])
+                                label.star.star-5(for='star-5')
+                                |
+                                input#star-4.star.star-4(type='radio', name='star', value='4', checked=stars[3])
+                                label.star.star-4(for='star-4')
+                                |
+                                input#star-3.star.star-3(type='radio', name='star', value='3', checked=stars[2])
+                                label.star.star-3(for='star-3')
+                                |
+                                input#star-2.star.star-2(type='radio', name='star', value='2', checked=stars[1])
+                                label.star.star-2(for='star-2')
+                                |
+                                input#star-1.star.star-1(type='radio', name='star', value='1', checked=stars[0])
+                                label.star.star-1(for='star-1')
+                                input#rate-button.btn(type='submit' value='RATE MATE')
     #comments-container.container
         strong COMMENTS
         each comment in comments
