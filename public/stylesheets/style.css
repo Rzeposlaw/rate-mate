@@ -237,9 +237,14 @@ label.star:before {
     color: #cfff44;
 }
 
+#panel-head {
+    background-color: #458d21;
+    color: #13340c;
+}
+
 #comments-container {
-    min-height: 0;
     padding-bottom: 20px;
+    text-align: center;
 }
 
 .panel {

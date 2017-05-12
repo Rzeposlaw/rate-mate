@@ -31,23 +31,20 @@ block content
                             label.star.star-1(for='star-1')
                             input#rate-button.btn(type='submit' value='RATE MATE')
     #comments-container.container
+        strong COMMENTS
         each comment in comments
             .panel
-                =comment.username
-                .pull-right
-                    =comment.date
-                br
-                =comment.comment
-
-
-
+                .panel-heading#panel-head
+                    p user #{comment.username}   #{comment.date}
+                .panel-body
+                    =comment.comment
     if user.authenticated
         .container
             form(method="POST", action="/product/" + product._id + '/comment')
                 h2.form-signin-heading ADD NEW COMMENT
                 |
                 br
-                textarea.form-control.my-form(type='text', name='comment', placeholder='Comment', rows="2")
+                textarea.form-control.my-form(type='text', name='comment', placeholder='COMMENT', rows="2")
                 |
                 br
                 button.form-control.my-form(type='submit') COMMENT
