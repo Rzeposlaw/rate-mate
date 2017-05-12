@@ -15,4 +15,9 @@ router.get('/', function (req, res, next) {
     });
 });
 
+router.post('/:username', function (req, res, err) {
+    User.find({username: req.params.username}).remove().exec();
+    res.redirect('/users');
+});
+
 module.exports = router;
