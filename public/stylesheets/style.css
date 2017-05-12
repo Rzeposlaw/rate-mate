@@ -29,6 +29,7 @@ body {
 }
 #product .image {
     height: 500px;
+    padding-bottom: 20px;
 }
 
 .thumbnail img {
@@ -57,8 +58,9 @@ body {
     border-radius: 0;
 }
 
-#my-ratings {
+#my-rating {
     padding-top: 145px;
+    padding-bottom: 500px;
 }
 
 .logout-button {
@@ -232,6 +234,19 @@ label.star:before {
 
 #top {
     background-color: #13340c;
+    color: #cfff44;
+}
+
+#comments-container {
+    min-height: 0;
+    padding-bottom: 20px;
+}
+
+.panel {
+    border-radius: 0;
+    background-color: #13340c;
+    border: none;
+    color: #458d21;
 }
 
 .footer-color {
