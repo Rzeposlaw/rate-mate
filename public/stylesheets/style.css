@@ -79,6 +79,8 @@ body {
 
 .logout-button:focus {
     background-color: #cfff44;
+    width: 100%;
+    margin: 0;
     color: #13340c;
 }
 
