@@ -93,13 +93,22 @@ router.post('/:productID/comment', function (req, res, next) {
 
 router.post('/:productID/remove', function (req, res, next) {
     if (req.role == 'admin') {
-        Product.find({productID: req.params.productID}).remove().exec();
+        Product.find({_id: req.params.productID}).remove().exec();
         res.redirect('/products');
     }
     else {
         utils.postRouterErrorHandler(req, res);
     }
+});
 
+router.post('/:productID/remove/commentID', function (req, res, next) {
+    if (req.role == 'admin') {
+        Comment.find({_id: req.params.commentID}).remove().exec();
+        res.redirect('/product/' + req.params.productID);
+    }
+    else {
+        utils.postRouterErrorHandler(req, res);
+    }
 });
 
 module.exports = router;
