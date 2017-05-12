@@ -9,6 +9,7 @@ block content
                         th Username
                         th E-mail address
                         th Role
+                        th Action
                 tbody
                     each user in users
                         tr
@@ -16,3 +17,6 @@ block content
                             td #{user.username}
                             td #{user.email}
                             td #{user.role}
+                            td
+                                form(method="POST" action='/users/' + user.username)
+                                    button.btn.btn-danger(type='submit') DELETE

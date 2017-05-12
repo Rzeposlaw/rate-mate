@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/:username', function (req, res, err) {
-    if (req.role == 'admin') {
+    if (req.session.role == 'admin') {
         User.find({username: req.params.username}).remove().exec();
         res.redirect('/users');
     }
