@@ -6,12 +6,12 @@ var mongoose = require('mongoose');
 var Product = mongoose.model('Product');
 
 router.get('/', function (req, res, next) {
-    res.render('search');
+    res.render('search', {products: [], searchPhrase: ""});
 });
 
 router.get('/:name', function (req, res, next) {
     Product.find({name: new RegExp(req.params.name, 'i')}, function (err, products) {
-        res.render('products', {products: products});
+        res.render('search', {products: products, searchPhrase: req.params.name});
     });
 });
 

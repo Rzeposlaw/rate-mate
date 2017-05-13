@@ -5,5 +5,15 @@ block content
         div.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
             wrapper.col-sm-12
                 form(method="POST", action="/search")
-                    input.form-control.my-form(type='text', name='name', placeholder='SEARCH')
+                    input.form-control.my-form(type='text', name='name', placeholder='SEARCH' value=searchPhrase)
                     button#magnif.span.glyphicon.glyphicon-search.btn(type='submit')
+    #products.container
+        each product in products
+            slideanim
+                .col-sm-4
+                    .thumbnail
+                        a(href="/product/" + product._id)
+                            .image
+                                img.img-responsive(src=product.imagePath)
+                            p
+                                strong #{product.name}
