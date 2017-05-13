@@ -17,6 +17,7 @@ var product = require('./routes/product');
 var utils = require('./utils');
 var search = require('./routes/search');
 var ratings = require('./routes/ratings');
+var edit_product = require('./routes/edit-product');
 
 
 var app = express();
@@ -63,6 +64,7 @@ app.use('/product', product);
 app.use('/new-product', new_product, utils.postRouterErrorHandler);
 app.use('/search', search);
 app.use('/ratings', ratings);
+app.use('/edit-product', edit_product);
 
 
 

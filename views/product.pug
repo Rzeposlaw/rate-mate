@@ -32,7 +32,7 @@ block content
                                 label.star.star-1(for='star-1')
                                 input#rate-button.btn(type='submit' value='RATE MATE')
                     if user.role == "admin"
-                        form(method="POST" action='/product/' + product._id + '/edit')
+                        form(method="POST" action='/edit-product/' + product._id)
                             button.btn.btn-danger#edit-button(type='submit') EDIT PRODUCT
                         form(method="POST" action='/product/' + product._id + '/remove')
                             button.btn.btn-danger#delete-button(type='submit') DELETE PRODUCT

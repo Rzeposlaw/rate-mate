@@ -3,8 +3,6 @@ var router = express.Router();
 var session = require('express-session');
 var mongoose = require('mongoose');
 var utils = require('../utils');
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
 var Product = mongoose.model('Product');
 var Comment = mongoose.model('Comment');
 
@@ -75,26 +73,7 @@ router.post('/:productID', function (req, res, next) {
     }
 });
 
-router.post('/:productID/edit', multipartMiddleware, function (req, res, next) {
-    if (req.role == 'admin') {
-        Product.findOne({_id: req.params.productID}, function (err, product) {
-            product.description = req.body.description;
-            product.name = req.body.name;
-            fs.readFile(req.files.productImage.path, function (err, data) {
-                var newPath = path.join(__dirname, "..", "public", product.imagePath);
-                fs.writeFile(newPath, data, function (err) {
-                    console.log(err);
-                    product.save(function (err) {
-                        res.redirect('/product/' + req.params.productID)
-                    })
-                });
-            });
-        });
-    }
-    else {
-        utils.postRouterErrorHandler(req, res);
-    }
-});
+
 
 router.post('/:productID/comment', function (req, res, next) {
     if (req.session.authenticated) {
