@@ -31,7 +31,7 @@ router.post('/', multipartMiddleware, function (req, res, next) {
                 numberOfRatings: 0
             }).save(function (err) {
                 console.log(err);
-                res.redirect('/');
+                res.redirect('/products');
             });
         });
     });

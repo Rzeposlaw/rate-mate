@@ -32,7 +32,7 @@ block content
                                 label.star.star-1(for='star-1')
                                 input#rate-button.btn(type='submit' value='RATE MATE')
                     if user.role == "admin"
-                        form(method="POST" action='/' + product._id + '/remove')
+                        form(method="POST" action='/product/' + product._id + '/remove')
                             button.btn.btn-danger#delete-button(type='submit') DELETE PRODUCT
     #comments-container.container
         strong COMMENTS
@@ -43,7 +43,7 @@ block content
                 .panel-body
                     =comment.comment
                     if user.role == "admin"
-                        form(method="POST" action='/' + product._id + '/remove/' + comment.id)
+                        form(method="POST" action='/product/' + product._id + '/remove/' + comment._id)
                             button.btn.btn-danger#delete-button.pull-right(type='submit') DELETE COMMENT
     if user.authenticated
         .container

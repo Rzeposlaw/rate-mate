@@ -114,7 +114,7 @@ router.post('/:productID/comment', function (req, res, next) {
 });
 
 router.post('/:productID/remove', function (req, res, next) {
-    if (req.role == 'admin') {
+    if (req.session.role == 'admin') {
         Product.find({_id: req.params.productID}).remove().exec();
         res.redirect('/products');
     }
@@ -123,8 +123,8 @@ router.post('/:productID/remove', function (req, res, next) {
     }
 });
 
-router.post('/:productID/remove/commentID', function (req, res, next) {
-    if (req.role == 'admin') {
+router.post('/:productID/remove/:commentID', function (req, res, next) {
+    if (req.session.role == 'admin') {
         Comment.find({_id: req.params.commentID}).remove().exec();
         res.redirect('/product/' + req.params.productID);
     }
