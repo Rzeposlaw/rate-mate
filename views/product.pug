@@ -33,6 +33,8 @@ block content
                                 input#rate-button.btn(type='submit' value='RATE MATE')
                     if user.role == "admin"
                         form(method="POST" action='/product/' + product._id + '/remove')
+                            button.btn.btn-danger#edit-button(type='submit') EDIT PRODUCT
+                        form(method="POST" action='/product/' + product._id + '/remove')
                             button.btn.btn-danger#delete-button(type='submit') DELETE PRODUCT
     #comments-container.container
         strong COMMENTS
