@@ -16,6 +16,8 @@ var Product = mongoose.model('Product');
 var multipartMiddleware = multipart();
 
 /* GET home page. */
+router.use(utils.preRouterErrorHandler);
+
 router.get('/:productID', function (req, res, next) {
     Product.findOne({_id: req.params.productID}, function (err, product) {
         console.log(product);
@@ -24,7 +26,7 @@ router.get('/:productID', function (req, res, next) {
 });
 
 router.post('/:productID', multipartMiddleware, function (req, res, next) {
-    if (req.session.role != 'admin') {
+    if (req.session.role == 'admin') {
         Product.findOne({_id: req.params.productID}, function (err, product) {
             product.description = req.body.description;
             product.name = req.body.name;

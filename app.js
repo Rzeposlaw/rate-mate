@@ -37,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/product', express.static(path.join(__dirname, 'public')));
 app.use('/search', express.static(path.join(__dirname, 'public')));
 app.use('/product/:productID', express.static(path.join(__dirname, 'public')));
+app.use('/edit-product/:productID', express.static(path.join(__dirname, 'public')));
 
 
 app.use(function (req, res, next) {
@@ -64,7 +65,7 @@ app.use('/product', product);
 app.use('/new-product', new_product, utils.postRouterErrorHandler);
 app.use('/search', search);
 app.use('/ratings', ratings);
-app.use('/edit-product', edit_product);
+app.use('/edit-product', edit_product, utils.postRouterErrorHandler);
 
 
 
