@@ -264,6 +264,8 @@ label.star:before {
 
 #delete-button {
     border-radius: 0;
+    margin-top: 10px;
+    background-color: #6f170b;
 }
 
 .footer-color {

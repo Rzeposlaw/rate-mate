@@ -31,6 +31,9 @@ block content
                                 input#star-1.star.star-1(type='radio', name='star', value='1', checked=stars[0])
                                 label.star.star-1(for='star-1')
                                 input#rate-button.btn(type='submit' value='RATE MATE')
+                    if user.role == "admin"
+                        form(method="POST" action='/' + product._id + '/remove')
+                            button.btn.btn-danger#delete-button(type='submit') DELETE PRODUCT
     #comments-container.container
         strong COMMENTS
         each comment in comments
@@ -39,6 +42,9 @@ block content
                     p user #{comment.username}   #{comment.date}
                 .panel-body
                     =comment.comment
+                    if user.role == "admin"
+                        form(method="POST" action='/' + product._id + '/remove/' + comment.id)
+                            button.btn.btn-danger#delete-button.pull-right(type='submit') DELETE COMMENT
     if user.authenticated
         .container
             form(method="POST", action="/product/" + product._id + '/comment')
