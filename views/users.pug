@@ -19,4 +19,4 @@ block content
                             td #{user.role}
                             td
                                 form(method="POST" action='/users/' + user.username)
-                                    button.btn.btn-danger(type='submit') DELETE
+                                    button.btn.btn-danger#delete-button(type='submit') DELETE

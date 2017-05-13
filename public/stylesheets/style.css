@@ -262,6 +262,10 @@ label.star:before {
     color: #458d21;
 }
 
+#delete-button {
+    border-radius: 0;
+}
+
 .footer-color {
     color: #13340c;
 }
