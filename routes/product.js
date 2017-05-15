@@ -24,7 +24,12 @@ router.get('/:productID', function (req, res, next) {
                     starsArray[rating.rating - 1] = true;
                     console.log(starsArray);
                 }
-                res.render('product', {product: product, comments: comments, stars: starsArray, rating: Math.round(product.rating * 100) / 100});
+                res.render('product', {
+                    product: product,
+                    comments: comments,
+                    stars: starsArray,
+                    rating: Math.round(product.rating * 100) / 100
+                });
 
             });
         });
@@ -36,55 +41,62 @@ router.post('/:productID', function (req, res, next) {
         utils.postRouterErrorHandler(req, res);
     } else {
         console.log("body " + req.body.star);
-        Rating.findOne({username: req.session.username, productID: req.params.productID}, function (err, rating) {
-            console.log(rating);
-            if (rating === null) {
-                new Rating({
-                    username: req.session.username,
-                    productID: req.params.productID,
-                    rating: parseInt(req.body.star)
-                }).save(function (err) {
-                    Product.findOne({_id: req.params.productID}, function (err, product) {
-                        var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star)) / (product.numberOfRatings + 1);
-                        product.rating = newRating;
-                        product.numberOfRatings += 1;
-                        product.save(function (err) {
-                            console.log(product);
-                            res.redirect('/product/' + req.params.productID);
-                        })
+        if (req.body.star != undefined) {
+            Rating.findOne({username: req.session.username, productID: req.params.productID}, function (err, rating) {
+                console.log(rating);
+                if (rating === null) {
+                    new Rating({
+                        username: req.session.username,
+                        productID: req.params.productID,
+                        rating: parseInt(req.body.star)
+                    }).save(function (err) {
+                        Product.findOne({_id: req.params.productID}, function (err, product) {
+                            var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star)) / (product.numberOfRatings + 1);
+                            product.rating = newRating;
+                            product.numberOfRatings += 1;
+                            product.save(function (err) {
+                                console.log(product);
+                                res.redirect('/product/' + req.params.productID);
+                            })
+                        });
                     });
-                });
-            } else {
-                var oldRating = rating.rating;
-                rating.rating = parseInt(req.body.star);
-                rating.save(function (err) {
-                    Product.findOne({_id: req.params.productID}, function (err, product) {
-                        var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star) - oldRating)
-                            / (product.numberOfRatings);
-                        product.rating = newRating;
-                        product.save(function (err) {
-                            console.log(product);
-                            res.redirect('/product/' + req.params.productID);
-                        })
-                    });
-                })
-            }
-        });
+                } else {
+                    var oldRating = rating.rating;
+                    rating.rating = parseInt(req.body.star);
+                    rating.save(function (err) {
+                        Product.findOne({_id: req.params.productID}, function (err, product) {
+                            var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star) - oldRating)
+                                / (product.numberOfRatings);
+                            product.rating = newRating;
+                            product.save(function (err) {
+                                console.log(product);
+                                res.redirect('/product/' + req.params.productID);
+                            })
+                        });
+                    })
+                }
+            });
+        } else {
+            res.redirect('/product/' + req.params.productID);
+        }
     }
 });
 
 
-
 router.post('/:productID/comment', function (req, res, next) {
     if (req.session.authenticated) {
-        new Comment({
-            username: req.session.username,
-            productID: req.params.productID,
-            comment: req.body.comment,
-            date: new Date()
-        }).save(function (err) {
+        if (req.body.comment != '') {
+            new Comment({
+                username: req.session.username,
+                productID: req.params.productID,
+                comment: req.body.comment,
+                date: new Date()
+            }).save(function (err) {
+                res.redirect('/product/' + req.params.productID);
+            })
+        } else {
             res.redirect('/product/' + req.params.productID);
-        })
+        }
     }
     else {
         utils.postRouterErrorHandler(req, res);
