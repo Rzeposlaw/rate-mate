@@ -14,4 +14,7 @@ block content
             br
             button#login-register-button.btn.btn-lg.btn-primary.btn-block.my-form(type='submit') LOGIN
             br
+            if message
+                .alert.alert-danger=message
+            br
             a#signin-href(href='/register' class='btn-link btn') Don't have an account? Sign up!

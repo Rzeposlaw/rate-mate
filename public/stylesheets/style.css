@@ -66,6 +66,10 @@ body {
     padding-bottom: 500px;
 }
 
+#rating {
+    color: orange;
+}
+
 .logout-button {
     color: #458d21;
     background-color: #13340c;

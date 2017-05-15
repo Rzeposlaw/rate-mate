@@ -24,7 +24,7 @@ router.get('/:productID', function (req, res, next) {
                     starsArray[rating.rating - 1] = true;
                     console.log(starsArray);
                 }
-                res.render('product', {product: product, comments: comments, stars: starsArray});
+                res.render('product', {product: product, comments: comments, stars: starsArray, rating: Math.round(product.rating * 100) / 100});
 
             });
         });

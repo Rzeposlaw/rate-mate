@@ -11,7 +11,11 @@ block content
                     p #{product.description}
                     br
                     br
-                    p #{product.rating}
+                    if product.numberOfRatings != 0
+                        h1#rating rating: #{rating}/5(#{product.numberOfRatings})
+                    else
+                        h1#rating this product don't have any rating
+
                     br
                     if user.authenticated
                         .stars

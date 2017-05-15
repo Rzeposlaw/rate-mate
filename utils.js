@@ -2,6 +2,8 @@ var express = require('express');
 var roles = require('./roles.json');
 var session = require('express-session');
 
+var backUrl = '/';
+
 module.exports = {
     postRouterErrorHandler: function (req, res) {
         var status;
@@ -28,5 +30,6 @@ module.exports = {
         } else {
             next('router');
         }
-    }
+    },
+    backUrl: backUrl
 };
