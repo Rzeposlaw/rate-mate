@@ -26,7 +26,7 @@ router.get('/:productID', function (req, res, next) {
         });
     }
     else {
-        utils.postRouterErrorHandler(req, res);
+        next('router');
     }
 });
 
@@ -51,9 +51,8 @@ router.post('/:productID', multipartMiddleware, function (req, res, next) {
                 })
             }
         });
-    }
-    else {
-        utils.postRouterErrorHandler(req, res);
+    } else {
+        next('router');
     }
 });
 

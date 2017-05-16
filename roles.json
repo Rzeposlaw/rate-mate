@@ -1,10 +1,14 @@
 {
-  "unauthorized": [],
+  "unauthorized": [
+  ],
   "user": [
-    "/new-product"
+    "new-product",
+    "ratings"
   ],
   "admin": [
-    "/new-product",
-    "/users"
+    "new-product",
+    "ratings",
+    "edit-product",
+    "users"
   ]
 }

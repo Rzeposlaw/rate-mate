@@ -25,7 +25,7 @@ module.exports = {
         });
     },
     preRouterErrorHandler: function (req, res, next) {
-        if (roles[req.session.role].indexOf("/new-product") != -1) {
+        if (roles[req.session.role].indexOf(req.originalUrl.split('/')[1]) != -1) {
             next();
         } else {
             next('router');

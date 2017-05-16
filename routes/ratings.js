@@ -10,15 +10,12 @@ var utils = require('../utils');
 
 /* GET users listing. */
 var Rating = mongoose.model('Rating');
+router.use(utils.preRouterErrorHandler);
 router.get('/', function (req, res, next) {
-    if (req.session.authenticated) {
-        Rating.find({username: req.session.username}, function (err, ratings) {
-            console.log(ratings);
-            res.render('ratings', {ratings: ratings});
-        });
-    } else {
-        utils.postRouterErrorHandler(req, res);
-    }
+    Rating.find({username: req.session.username}, function (err, ratings) {
+        console.log(ratings);
+        res.render('ratings', {ratings: ratings});
+    });
 });
 
 module.exports = router;

@@ -71,7 +71,7 @@ app.use('/products', products, utils.postRouterErrorHandler);
 app.use('/product', product);
 app.use('/new-product', new_product, utils.postRouterErrorHandler);
 app.use('/search', search);
-app.use('/ratings', ratings);
+app.use('/ratings', ratings, utils.postRouterErrorHandler);
 app.use('/edit-product', edit_product, utils.postRouterErrorHandler);
 
 

@@ -38,7 +38,7 @@ router.get('/:productID', function (req, res, next) {
 
 router.post('/:productID', function (req, res, next) {
     if (!req.session.authenticated) {
-        utils.postRouterErrorHandler(req, res);
+        next('router');
     } else {
         console.log("body " + req.body.star);
         if (req.body.star != undefined) {
@@ -99,7 +99,7 @@ router.post('/:productID/comment', function (req, res, next) {
         }
     }
     else {
-        utils.postRouterErrorHandler(req, res);
+        next('router');
     }
 
 });
