@@ -19,10 +19,15 @@ var multipartMiddleware = multipart();
 router.use(utils.preRouterErrorHandler);
 
 router.get('/:productID', function (req, res, next) {
-    Product.findOne({_id: req.params.productID}, function (err, product) {
-        console.log(product);
-        res.render('edit-product', {product: product});
-    });
+    if (req.session.role == 'admin') {
+        Product.findOne({_id: req.params.productID}, function (err, product) {
+            console.log(product);
+            res.render('edit-product', {product: product});
+        });
+    }
+    else {
+        utils.postRouterErrorHandler(req, res);
+    }
 });
 
 router.post('/:productID', multipartMiddleware, function (req, res, next) {
