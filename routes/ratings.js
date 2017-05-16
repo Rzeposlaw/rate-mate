@@ -1,6 +1,3 @@
-/**
- * Created by robertt240 on 5/11/17.
- */
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
