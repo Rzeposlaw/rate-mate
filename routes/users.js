@@ -9,10 +9,14 @@ var utils = require('../utils');
 var User = mongoose.model('User');
 router.use(utils.preRouterErrorHandler);
 router.get('/', function (req, res, next) {
-    User.find({}, function (err, users) {
-        console.log(users);
-        res.render('users', {users: users});
-    });
+    if (req.session.role == 'admin') {
+        User.find({}, function (err, users) {
+            console.log(users);
+            res.render('users', {users: users});
+        });
+    } else {
+        utils.postRouterErrorHandler(req, res);
+    }
 });
 
 router.post('/:username', function (req, res, err) {
