@@ -8,7 +8,7 @@ var Product = mongoose.model('Product');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    Product.find({}).sort({rating: -1}).limit(5).exec(
+    Product.find({}).sort({tasteRating: -1}).limit(5).exec(
         function (err, products) {
             res.render('index', {topProducts: products});
         }

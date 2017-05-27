@@ -27,7 +27,9 @@ router.post('/', multipartMiddleware, function (req, res, next) {
                 name: req.body.name,
                 description: req.body.description,
                 imagePath: path.join("uploads", req.body.name + ".png"),
-                rating: 1,
+                powerRating: 1,
+                dustRating: 1,
+                tasteRating: 1,
                 numberOfRatings: 0
             }).save(function (err) {
                 console.log(err);

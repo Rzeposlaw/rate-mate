@@ -14,7 +14,9 @@ var productSchema = new mongoose.Schema({
     name: String,
     description: String,
     imagePath: String,
-    rating: {type: Number, min: 1, max: 5},
+    tasteRating: {type: Number, min: 1, max: 5},
+    powerRating: {type: Number, min: 1, max: 5},
+    dustRating: {type: Number, min: 1, max: 5},
     numberOfRatings: Number
 }, {collection: "products"});
 
@@ -28,7 +30,9 @@ var commentSchema = new mongoose.Schema({
 var ratingSchema = new mongoose.Schema({
     username: String,
     productID: String,
-    rating: Number
+    tasteRating: Number,
+    powerRating: Number,
+    dustRating: Number,
 }, {collection: "ratings"});
 
 mongoose.model('User', userSchema);

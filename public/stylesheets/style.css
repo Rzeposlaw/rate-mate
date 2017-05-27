@@ -123,8 +123,21 @@ h1, h2 {
 }
 
 div.stars {
-    width: 237px;
+    /*width: 237px;*/
     display: inline-block;
+}
+
+.stars-label {
+    padding-top: 15px;
+    float: left;
+}
+
+.stars-input {
+    float: right;
+}
+
+.stars-input-container {
+    overflow: hidden;
 }
 
 #search {
@@ -168,11 +181,11 @@ div.stars {
     padding-left: 10px;
 }
 
-input.star {
+input.tasteStar {
     display: none;
 }
 
-label.star {
+label.tasteStar {
     float: right;
     padding: 10px;
     font-size: 25px;
@@ -180,26 +193,98 @@ label.star {
     transition: all .2s;
 }
 
-input.star:checked ~ label.star:before {
+input.dustStar {
+    display: none;
+}
+
+label.dustStar {
+    float: right;
+    padding: 10px;
+    font-size: 25px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.powerStar {
+    display: none;
+}
+
+label.powerStar {
+    float: right;
+    padding: 10px;
+    font-size: 25px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.tasteStar:checked ~ label.tasteStar:before {
     content: '\f005';
     color: #FD4;
     transition: all .25s;
 }
 
-input.star-5:checked ~ label.star:before {
+input.tasteStar-5:checked ~ label.tasteStar:before {
     color: #FE7;
     text-shadow: 0 0 20px #952;
 }
 
-input.star-1:checked ~ label.star:before {
+input.tasteStar-1:checked ~ label.tasteStar:before {
     color: #F62;
 }
 
-label.star:hover {
+label.tasteStar:hover {
     transform: rotate(-15deg) scale(1.3);
 }
 
-label.star:before {
+label.tasteStar:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+input.powerStar:checked ~ label.powerStar:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+input.powerStar-5:checked ~ label.powerStar:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #952;
+}
+
+input.powerStar-1:checked ~ label.powerStar:before {
+    color: #F62;
+}
+
+label.powerStar:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+label.powerStar:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+input.dustStar:checked ~ label.dustStar:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+input.dustStar-5:checked ~ label.dustStar:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #952;
+}
+
+input.dustStar-1:checked ~ label.dustStar:before {
+    color: #F62;
+}
+
+label.dustStar:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+label.dustStar:before {
     content: '\f006';
     font-family: FontAwesome;
 }

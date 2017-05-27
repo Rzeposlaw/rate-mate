@@ -12,28 +12,69 @@ block content
                     br
                     br
                     if product.numberOfRatings != 0
-                        h1#rating rating: #{rating}/5(#{product.numberOfRatings})
+                        h1#rating taste rating: #{tasteRating}/5(#{product.numberOfRatings})
+                        h1#rating power rating: #{powerRating}/5(#{product.numberOfRatings})
+                        h1#rating dust rating: #{dustRating}/5(#{product.numberOfRatings})
                     else
                         h1#rating this product don't have any rating
 
                     br
-                    if user.authenticated
+                    if !user.authenticated
                         .stars
                             form(method="POST", action='/product/' + product._id)
-                                input#star-5.star.star-5(type='radio', name='star', value='5', checked=stars[4])
-                                label.star.star-5(for='star-5')
-                                |
-                                input#star-4.star.star-4(type='radio', name='star', value='4', checked=stars[3])
-                                label.star.star-4(for='star-4')
-                                |
-                                input#star-3.star.star-3(type='radio', name='star', value='3', checked=stars[2])
-                                label.star.star-3(for='star-3')
-                                |
-                                input#star-2.star.star-2(type='radio', name='star', value='2', checked=stars[1])
-                                label.star.star-2(for='star-2')
-                                |
-                                input#star-1.star.star-1(type='radio', name='star', value='1', checked=stars[0])
-                                label.star.star-1(for='star-1')
+                                .stars-input-container
+                                    label.stars-label taste:
+                                    .stars-input
+                                        input#tasteStar-5.tasteStar.tasteStar-5(type='radio', name='tasteStar', value='5', checked=tasteStars[4])
+                                        label.tasteStar.tasteStar-5(for='tasteStar-5')
+                                        |
+                                        input#tasteStar-4.tasteStar.tasteStar-4(type='radio', name='tasteStar', value='4', checked=tasteStars[3])
+                                        label.tasteStar.tasteStar-4(for='tasteStar-4')
+                                        |
+                                        input#tasteStar-3.tasteStar.tasteStar-3(type='radio', name='tasteStar', value='3', checked=tasteStars[2])
+                                        label.tasteStar.tasteStar-3(for='tasteStar-3')
+                                        |
+                                        input#tasteStar-2.tasteStar.tasteStar-2(type='radio', name='tasteStar', value='2', checked=tasteStars[1])
+                                        label.tasteStar.tasteStar-2(for='tasteStar-2')
+                                        |
+                                        input#tasteStar-1.tasteStar.tasteStar-1(type='radio', name='tasteStar', value='1', checked=tasteStars[0])
+                                        label.tasteStar.tasteStar-1(for='tasteStar-1')
+                                br
+                                .stars-input-container
+                                    label.stars-label power:
+                                    .stars-input
+                                        input#powerStar-5.powerStar.powerStar-5(type='radio', name='powerStar', value='5', checked=powerStars[4])
+                                        label.powerStar.powerStar-5(for='powerStar-5')
+                                        |
+                                        input#powerStar-4.powerStar.powerStar-4(type='radio', name='powerStar', value='4', checked=powerStars[3])
+                                        label.powerStar.powerStar-4(for='powerStar-4')
+                                        |
+                                        input#powerStar-3.powerStar.powerStar-3(type='radio', name='powerStar', value='3', checked=powerStars[2])
+                                        label.powerStar.powerStar-3(for='powerStar-3')
+                                        |
+                                        input#powerStar-2.powerStar.powerStar-2(type='radio', name='powerStar', value='2', checked=powerStars[1])
+                                        label.powerStar.powerStar-2(for='powerStar-2')
+                                        |
+                                        input#powerStar-1.powerStar.powerStar-1(type='radio', name='powerStar', value='1', checked=powerStars[0])
+                                        label.powerStar.powerStar-1(for='powerStar-1')
+                                br
+                                .stars-input-container
+                                    label.stars-label dust:
+                                    .stars-input
+                                        input#dustStar-5.dustStar.dustStar-5(type='radio', name='dustStar', value='5', checked=dustStars[4])
+                                        label.dustStar.dustStar-5(for='dustStar-5')
+                                        |
+                                        input#dustStar-4.dustStar.dustStar-4(type='radio', name='dustStar', value='4', checked=dustStars[3])
+                                        label.dustStar.dustStar-4(for='dustStar-4')
+                                        |
+                                        input#dustStar-3.dustStar.dustStar-3(type='radio', name='dustStar', value='3', checked=dustStars[2])
+                                        label.dustStar.dustStar-3(for='dustStar-3')
+                                        |
+                                        input#dustStar-2.dustStar.dustStar-2(type='radio', name='dustStar', value='2', checked=dustStars[1])
+                                        label.dustStar.dustStar-2(for='dustStar-2')
+                                        |
+                                        input#dustStar-1.dustStar.dustStar-1(type='radio', name='dustStar', value='1', checked=dustStars[0])
+                                        label.dustStar.dustStar-1(for='dustStar-1')
                                 input#rate-button.btn(type='submit' value='RATE MATE')
                     if user.role == "admin"
                         form(method="GET" action='/edit-product/' + product._id)

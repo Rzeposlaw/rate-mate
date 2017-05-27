@@ -15,20 +15,34 @@ router.get('/:productID', function (req, res, next) {
 
             Rating.findOne({productID: product._id, username: req.session.username}, function (err, rating) {
                 if (rating == null) {
-                    starsArray = [false, false, false, false, false];
+                    var powerStarsArray = [false, false, false, false, false];
+                    var tasteStarsArray = [false, false, false, false, false];
+                    var dustStarsArray = [false, false, false, false, false];
+
                 } else {
                     var starsArray = [];
+                    var powerStarsArray = [];
+                    var tasteStarsArray = [];
+                    var dustStarsArray = [];
                     for (var i = 0; i < 5; i++) {
-                        starsArray.push(false);
+                        powerStarsArray.push(false);
+                        tasteStarsArray.push(false);
+                        dustStarsArray.push(false);
                     }
-                    starsArray[rating.rating - 1] = true;
-                    console.log(starsArray);
+                    powerStarsArray[rating.powerRating - 1] = true;
+                    tasteStarsArray[rating.tasteRating - 1] = true;
+                    dustStarsArray[rating.dustRating - 1] = true;
                 }
                 res.render('product', {
                     product: product,
                     comments: comments,
-                    stars: starsArray,
-                    rating: Math.round(product.rating * 100) / 100
+                    powerStars: powerStarsArray,
+                    tasteStars: tasteStarsArray,
+                    dustStars: dustStarsArray,
+                    powerRating: Math.round(product.powerRating * 100) / 100,
+                    tasteRating: Math.round(product.tasteRating * 100) / 100,
+                    dustRating: Math.round(product.dustRating * 100) / 100
+
                 });
 
             });
@@ -40,19 +54,29 @@ router.post('/:productID', function (req, res, next) {
     if (!req.session.authenticated) {
         next('router');
     } else {
-        console.log("body " + req.body.star);
-        if (req.body.star != undefined) {
+        console.log(req.body);
+        if (req.body.tasteStar != undefined && req.body.powerStar != undefined && req.body.dustStar != undefined) {
             Rating.findOne({username: req.session.username, productID: req.params.productID}, function (err, rating) {
-                console.log(rating);
                 if (rating === null) {
                     new Rating({
                         username: req.session.username,
                         productID: req.params.productID,
-                        rating: parseInt(req.body.star)
+                        powerRating: parseInt(req.body.powerStar),
+                        tasteRating: parseInt(req.body.tasteStar),
+                        dustRating: parseInt(req.body.dustStar)
                     }).save(function (err) {
                         Product.findOne({_id: req.params.productID}, function (err, product) {
-                            var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star)) / (product.numberOfRatings + 1);
-                            product.rating = newRating;
+                            var newPowerRating = (product.powerRating * product.numberOfRatings + parseInt(req.body.powerStar)) / (product.numberOfRatings + 1);
+                            var newDustRating = (product.dustRating * product.numberOfRatings + parseInt(req.body.dustStar)) / (product.numberOfRatings + 1);
+                            var newTasteRating = (product.tasteRating * product.numberOfRatings + parseInt(req.body.tasteStar)) / (product.numberOfRatings + 1);
+
+                            product.powerRating = newPowerRating;
+                            product.tasteRating = newTasteRating;
+                            product.dustRating = newDustRating;
+                            console.log("number of ratings: " + product.numberOfRatings);
+                            console.log("power star: " + parseInt(req.body.powerStar));
+                            console.log("powerrating: " + newPowerRating);
+
                             product.numberOfRatings += 1;
                             product.save(function (err) {
                                 console.log(product);
@@ -61,13 +85,27 @@ router.post('/:productID', function (req, res, next) {
                         });
                     });
                 } else {
-                    var oldRating = rating.rating;
-                    rating.rating = parseInt(req.body.star);
+                    var oldPowerRating = rating.powerRating;
+                    var oldDustRating = rating.dustRating;
+                    var oldTasteRating = rating.tasteRating;
+
+                    rating.powerRating = parseInt(req.body.powerStar);
+                    rating.tasteRating = parseInt(req.body.tasteStar);
+                    rating.dustRating = parseInt(req.body.dustStar);
+
+
                     rating.save(function (err) {
                         Product.findOne({_id: req.params.productID}, function (err, product) {
-                            var newRating = (product.rating * product.numberOfRatings + parseInt(req.body.star) - oldRating)
+                            var newPowerRating = (product.powerRating * product.numberOfRatings + parseInt(req.body.powerStar) - oldPowerRating)
                                 / (product.numberOfRatings);
-                            product.rating = newRating;
+                            var newDustRating = (product.dustRating * product.numberOfRatings + parseInt(req.body.dustStar) - oldDustRating)
+                                / (product.numberOfRatings);
+                            var newTasteRating = (product.tasteRating * product.numberOfRatings + parseInt(req.body.tasteStar) - oldTasteRating)
+                                / (product.numberOfRatings);
+                            product.powerRating = newPowerRating;
+                            product.tasteRating = newTasteRating;
+                            product.dustRating = newDustRating;
+                            console.log(newDustRating);
                             product.save(function (err) {
                                 console.log(product);
                                 res.redirect('/product/' + req.params.productID);
