@@ -6,10 +6,10 @@ block content
                 thead
                     tr
                         th Product ID
-                        th Rating
+                        th Rating(taste/power/dust)
                 tbody
                     each rating in ratings
                         tr
                             td
                                 a(href='/product/' + rating.productID) #{rating.productID}
-                            td #{rating.rating}
+                            td #{rating.tasteRating}/#{rating.powerRating}/#{rating.dustRating}

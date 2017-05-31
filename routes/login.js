@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
             req.session.authenticated = true;
             req.session.username = user.username;
             req.session.role = user.role;
-            if (backUrl.split('/')[3] == 'login' || backUrl.split('/')[3] == 'register') {
+            if (backUrl == undefined || backUrl.split('/')[3] == 'login' || backUrl.split('/')[3] == 'register') {
                 backUrl = '/';
             }
             res.redirect(backUrl);

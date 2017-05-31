@@ -12,14 +12,15 @@ block content
                     br
                     br
                     if product.numberOfRatings != 0
-                        h1#rating taste rating: #{tasteRating}/5(#{product.numberOfRatings})
-                        h1#rating power rating: #{powerRating}/5(#{product.numberOfRatings})
-                        h1#rating dust rating: #{dustRating}/5(#{product.numberOfRatings})
+                        .panel.panel-default
+                            h1#rating Average taste rating: #{tasteRating}/5(#{product.numberOfRatings})
+                            h1#rating Average power rating: #{powerRating}/5(#{product.numberOfRatings})
+                            h1#rating Average dust rating: #{dustRating}/5(#{product.numberOfRatings})
                     else
                         h1#rating this product don't have any rating
 
                     br
-                    if !user.authenticated
+                    if user.authenticated
                         .stars
                             form(method="POST", action='/product/' + product._id)
                                 .stars-input-container

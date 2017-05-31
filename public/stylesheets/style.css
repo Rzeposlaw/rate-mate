@@ -67,7 +67,9 @@ body {
 }
 
 #rating {
-    color: orange;
+    color: yellow;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .logout-button {
@@ -350,6 +352,11 @@ label.dustStar:before {
     background-color: #13340c;
     border: none;
     color: #458d21;
+}
+
+.panel-default {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #edit-button {
